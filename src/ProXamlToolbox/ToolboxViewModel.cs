@@ -57,12 +57,6 @@ namespace ProXamlToolbox
                 },
                 new ProToolboxItem
                 {
-                    ImageMoniker = KnownMonikers.PageLayout,
-                    DisplayedText = "RelativeLayout",
-                    DefaultContent = "<RelativeLayout [XN]>\r\n*|*\r\n</RelativeLayout>",
-                },
-                new ProToolboxItem
-                {
                     ImageMoniker = KnownMonikers.AlignVerticalStretch,
                     DisplayedText = "HorizontalStackLayout",
                     DefaultContent = "<HorizontalStackLayout [XN]>\r\n*|*\r\n</HorizontalStackLayout>",
@@ -226,8 +220,8 @@ namespace ProXamlToolbox
                 new ProToolboxItem
                 {
                     //ImageMoniker = KnownMonikers.ToggleButton,
-                    DisplayedText = "SwipView",
-                    DefaultContent = "<SwipView [XN] />\r\n",
+                    DisplayedText = "SwipeView",
+                    DefaultContent = "<SwipeView [XN] />\r\n",
                 },
                 new ProToolboxItem
                 {

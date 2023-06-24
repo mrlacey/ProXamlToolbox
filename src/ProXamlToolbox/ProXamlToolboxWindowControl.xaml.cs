@@ -8,7 +8,7 @@ namespace ProXamlToolbox
 {
     public partial class ProXamlToolboxWindowControl : UserControl
     {
-        private DTE dte;
+        private readonly DTE dte;
 
         public ProXamlToolboxWindowControl()
         {
@@ -49,7 +49,11 @@ namespace ProXamlToolbox
                         selection.ActivePoint.Line,
                         selection.ActivePoint.LineCharOffset,
                         pti,
-                        new ToolboxSettings { IncludeXName = IncludeXName.IsChecked ?? false });
+                        new ToolboxSettings
+                        {
+                            IncludeXName = IncludeXName.IsChecked ?? false,
+                            PreferCommands = PreferCommands.IsChecked ?? false,
+                        });
 
                     var (TextToInsert, InsertionLine, InsertionLineOffset) = insertLogic.GetFormattedTextAndOffsets(pti.DefaultContent);
 

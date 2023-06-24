@@ -2,6 +2,7 @@
 
 namespace ProXamlToolbox.Tests
 {
+#pragma warning disable IDE0042 // Deconstruct variable declaration
     [TestClass]
     public class InsertLogicTests
     {
@@ -137,6 +138,38 @@ namespace ProXamlToolbox.Tests
             Assert.AreEqual(2 + "aaa".Length, actual.PositionOffset);
         }
 
+        [TestMethod]
+        public void RemoveXNamePlaceholder()
+        {
+            var sut = new InsertLogic(2, 2, BlankToolboxItem(), AllSettingsOff());
+
+            var actual = sut.GetFormattedTextAndOffsets("<something [XN] />");
+
+            Assert.AreEqual("<something />", actual.Formatted);
+            Assert.AreEqual(-1, actual.LineOffset);
+            Assert.AreEqual(-1, actual.PositionOffset);
+        }
+
+        [TestMethod]
+        public void MakeReplacements_PreferEvents()
+        {
+            var sut = new InsertLogic(2, 2, BlankToolboxItem(), SettingsPreferCommands(false));
+
+            var actual = sut.MakeTextReplacements("<something[EVNT]Clicked=\"OnClicked\"[CMD]Command=\"{Binding CommandName}\" />");
+
+            Assert.AreEqual("<something Clicked=\"OnClicked\" />", actual);
+        }
+
+        [TestMethod]
+        public void MakeReplacements_PreferCommands()
+        {
+            var sut = new InsertLogic(2, 2, BlankToolboxItem(), SettingsPreferCommands(true));
+
+            var actual = sut.MakeTextReplacements("<something[EVNT]Clicked=\"OnClicked\"[CMD]Command=\"{Binding CommandName}\" />");
+
+            Assert.AreEqual("<something Command=\"{Binding CommandName}\" />", actual);
+        }
+
         private ProToolboxItem BlankToolboxItem()
         {
             return new ProToolboxItem();
@@ -145,6 +178,11 @@ namespace ProXamlToolbox.Tests
         private ToolboxSettings AllSettingsOff()
         {
             return new ToolboxSettings();
+        }
+
+        private ToolboxSettings SettingsPreferCommands(bool preferCommands)
+        {
+            return new ToolboxSettings() { PreferCommands = preferCommands };
         }
     }
 }

@@ -37,7 +37,7 @@ namespace ProXamlToolbox
                 {
                     ImageMoniker = KnownMonikers.Button,
                     DisplayedText = "Button",
-                    DefaultContent = "<Button [XN] Text=\"click me\" Command=\"{Binding CommandName}\" />\r\n",
+                    DefaultContent = "<Button [XN][EVNT]Clicked=\"OnButtonClicked\"[CMD]Command=\"{Binding CommandName}\" Text=\"click me\" />\r\n",
                 },
             };
         }

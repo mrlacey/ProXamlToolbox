@@ -36,6 +36,41 @@ namespace ProXamlToolbox
                 }
             }
 
+            if (Settings.PreferCommands)
+            {
+                // Include all commands
+                result = result.Replace(ProToolboxItem.CommandPrefixPlaceholder, " ");
+
+                // Remove all events
+                while (result.Contains(ProToolboxItem.EventPrefixPlaceholder))
+                {
+                    var eIndex = result.IndexOf(ProToolboxItem.EventPrefixPlaceholder);
+
+                    // TODO: change to searching for second quote (the closing one) as may not always be followed by a space
+                    var eEndIndex = result.IndexOf("\" ", eIndex);
+
+                    var eEnd = result.Substring(eEndIndex + 1);
+                    result = result.Substring(0, eIndex) + eEnd;
+                }
+            }
+            else
+            {
+                // Include all events
+                result = result.Replace(ProToolboxItem.EventPrefixPlaceholder, " ");
+
+                // Remove all commands
+                while (result.Contains(ProToolboxItem.CommandPrefixPlaceholder))
+                {
+                    var cIndex = result.IndexOf(ProToolboxItem.CommandPrefixPlaceholder);
+
+                    // TODO: change to searching for second quote
+                    var cEndIndex = result.IndexOf("\" ", cIndex);
+
+                    var cEnd = result.Substring(cEndIndex + 1);
+                    result = result.Substring(0, cIndex) + cEnd;
+                }
+            }
+
             return result;
         }
 
@@ -68,7 +103,6 @@ namespace ProXamlToolbox
             else
             {
                 lineOffset = -1;
-                insertOffset = -1;
             }
 
             return (insertText, lineOffset, insertOffset);

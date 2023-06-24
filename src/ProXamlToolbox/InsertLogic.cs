@@ -71,6 +71,24 @@ namespace ProXamlToolbox
                 }
             }
 
+            if (Settings.IncludeA11y)
+            {
+                result = result.Replace(ProToolboxItem.AllyPrefixPlaceholder, " ");
+            }
+            else
+            {
+                while (result.Contains(ProToolboxItem.AllyPrefixPlaceholder))
+                {
+                    var aIndex = result.IndexOf(ProToolboxItem.AllyPrefixPlaceholder);
+
+                    // TODO: change to searching for second quote
+                    var aEndIndex = result.IndexOf("\" ", aIndex);
+
+                    var aEnd = result.Substring(aEndIndex + 1);
+                    result = result.Substring(0, aIndex) + aEnd;
+                }
+            }
+
             return result;
         }
 

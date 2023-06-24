@@ -53,6 +53,7 @@ namespace ProXamlToolbox
                         {
                             IncludeXName = IncludeXName.IsChecked ?? false,
                             PreferCommands = PreferCommands.IsChecked ?? false,
+                            IncludeA11y = IncludeA11y.IsChecked ?? false,
                         });
 
                     var (TextToInsert, InsertionLine, InsertionLineOffset) = insertLogic.GetFormattedTextAndOffsets(pti.DefaultContent);

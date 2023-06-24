@@ -8,6 +8,7 @@ namespace ProXamlToolbox
         public const string XNamePlaceholder = " [XN]";
         public const string CommandPrefixPlaceholder = "[CMD]";
         public const string EventPrefixPlaceholder = "[EVNT]";
+        public const string AllyPrefixPlaceholder = "[A11Y]";
 
         public TargetPlatform Platforms { get; set; } = TargetPlatform.MauiAndWinui;
 

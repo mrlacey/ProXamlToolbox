@@ -25,7 +25,7 @@ namespace ProXamlToolbox
                 {
                     ImageMoniker = KnownMonikers.Label,
                     DisplayedText = "Label",
-                    DefaultContent = "<Label [XN] Text=\"CHANGEME\" />\r\n",
+                    DefaultContent = "<Label [XN] Text=\"CHANGEME\"[A11Y]SemanticProperties.HeadingLevel=\"Level1\" />\r\n",
                 },
                 new ProToolboxItem
                 {
@@ -37,7 +37,7 @@ namespace ProXamlToolbox
                 {
                     ImageMoniker = KnownMonikers.Button,
                     DisplayedText = "Button",
-                    DefaultContent = "<Button [XN][EVNT]Clicked=\"OnButtonClicked\"[CMD]Command=\"{Binding CommandName}\" Text=\"click me\" />\r\n",
+                    DefaultContent = "<Button [XN][EVNT]Clicked=\"OnButtonClicked\"[CMD]Command=\"{Binding CommandName}\" Text=\"click me\"[A11Y]SemanticProperties.Hint=\"Add a description of what happens when clicked\" />\r\n",
                 },
             };
         }

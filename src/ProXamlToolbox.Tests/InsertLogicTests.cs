@@ -170,6 +170,26 @@ namespace ProXamlToolbox.Tests
             Assert.AreEqual("<something Command=\"{Binding CommandName}\" />", actual);
         }
 
+        [TestMethod]
+        public void MakeReplacements_IncludeA11y()
+        {
+            var sut = new InsertLogic(2, 2, BlankToolboxItem(), SettingsIncludeA11y(true));
+
+            var actual = sut.MakeTextReplacements("<something[A11Y]SemanticProperties.Hint=\"USEFULHINT\" />");
+
+            Assert.AreEqual("<something SemanticProperties.Hint=\"USEFULHINT\" />", actual);
+        }
+
+        [TestMethod]
+        public void MakeReplacements_DoNotIncludeA11y()
+        {
+            var sut = new InsertLogic(2, 2, BlankToolboxItem(), SettingsIncludeA11y(false));
+
+            var actual = sut.MakeTextReplacements("<something[A11Y]SemanticProperties.Hint=\"USEFULHINT\" />");
+
+            Assert.AreEqual("<something />", actual);
+        }
+
         private ProToolboxItem BlankToolboxItem()
         {
             return new ProToolboxItem();
@@ -183,6 +203,11 @@ namespace ProXamlToolbox.Tests
         private ToolboxSettings SettingsPreferCommands(bool preferCommands)
         {
             return new ToolboxSettings() { PreferCommands = preferCommands };
+        }
+
+        private ToolboxSettings SettingsIncludeA11y(bool includeA11y)
+        {
+            return new ToolboxSettings() { IncludeA11y = includeA11y };
         }
     }
 }

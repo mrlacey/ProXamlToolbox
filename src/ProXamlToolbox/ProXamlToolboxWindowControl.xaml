@@ -32,7 +32,10 @@
                         IsChecked="True" />
                     <!--<CheckBox Content="Prefer hardcoded strings" />-->
                     <!--<CheckBox Content="Prefer 'x:Bind' over 'Binding'" />-->
-                    <CheckBox Content="Include accessibility info" />
+                    <CheckBox
+                        x:Name="IncludeA11y"
+                        Content="Include accessibility info"
+                        IsChecked="True" />
                     <CheckBox x:Name="IncludeXName" Content="Include 'x:Name'" />
                 </StackPanel>
             </Expander>

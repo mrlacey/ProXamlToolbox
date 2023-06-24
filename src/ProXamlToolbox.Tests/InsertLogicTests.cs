@@ -150,6 +150,9 @@ namespace ProXamlToolbox.Tests
             Assert.AreEqual(-1, actual.PositionOffset);
         }
 
+        // TODO: add tests for multiple commands
+        // TODO: add tests for multiple events
+
         [TestMethod]
         public void MakeReplacements_PreferEvents()
         {
@@ -169,6 +172,9 @@ namespace ProXamlToolbox.Tests
 
             Assert.AreEqual("<something Command=\"{Binding CommandName}\" />", actual);
         }
+
+        // TODO: add tests mixing commands/events and A11y properties
+        // TODO: add tests for adding multiple A11y properties at once
 
         [TestMethod]
         public void MakeReplacements_IncludeA11y()

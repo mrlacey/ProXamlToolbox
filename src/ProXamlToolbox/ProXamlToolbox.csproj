@@ -66,6 +66,7 @@
       <DependentUpon>ProXamlToolboxWindowPackage.vsct</DependentUpon>
     </Compile>
     <Compile Include="TargetPlatform.cs" />
+    <Compile Include="ToolboxSettings.cs" />
     <Compile Include="ToolboxViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

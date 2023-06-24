@@ -19,25 +19,25 @@ namespace ProXamlToolbox
                 {
                     ImageMoniker = KnownMonikers.Grid,
                     DisplayedText = "Grid",
-                    DefaultContent = "<Grid RowDefinitions=\"Auto,Auto,*\" ColumnDefinitions=\"*,*\">\r\n*|*\r\n</Grid>",
+                    DefaultContent = "<Grid [XN] RowDefinitions=\"Auto,Auto,*\" ColumnDefinitions=\"*,*\">\r\n*|*\r\n</Grid>",
                 },
                 new ProToolboxItem
                 {
                     ImageMoniker = KnownMonikers.Label,
                     DisplayedText = "Label",
-                    DefaultContent = "<Label Text=\"CHANGEME\" />\r\n",
+                    DefaultContent = "<Label [XN] Text=\"CHANGEME\" />\r\n",
                 },
                 new ProToolboxItem
                 {
                     ImageMoniker = KnownMonikers.TextBox,
                     DisplayedText = "Entry",
-                    DefaultContent = "<Entry Text=\"{Binding PropertyName}\" Placeholder=\"CHANGEME\" />\r\n",
+                    DefaultContent = "<Entry [XN] Text=\"{Binding PropertyName}\" Placeholder=\"CHANGEME\" />\r\n",
                 },
                 new ProToolboxItem
                 {
                     ImageMoniker = KnownMonikers.Button,
                     DisplayedText = "Button",
-                    DefaultContent = "<Button Text=\"click me\" Command=\"{Binding CommandName}\" />\r\n",
+                    DefaultContent = "<Button [XN] Text=\"click me\" Command=\"{Binding CommandName}\" />\r\n",
                 },
             };
         }

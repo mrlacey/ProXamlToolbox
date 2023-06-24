@@ -2,9 +2,10 @@
 
 namespace ProXamlToolbox
 {
-    internal class ProToolboxItem
+    public class ProToolboxItem
     {
         public const string CursorPlaceholder = "*|*";
+        public const string XNamePlaceholder = " [XN]";
 
         public TargetPlatform Platforms { get; set; } = TargetPlatform.MauiAndWinui;
 

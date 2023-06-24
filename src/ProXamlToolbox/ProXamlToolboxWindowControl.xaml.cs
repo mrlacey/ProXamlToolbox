@@ -45,7 +45,11 @@ namespace ProXamlToolbox
 
                     TextSelection selection = activeDoc.Selection as TextSelection;
 
-                    var insertLogic = new InsertLogic(selection.ActivePoint.Line, selection.ActivePoint.LineCharOffset);
+                    var insertLogic = new InsertLogic(
+                        selection.ActivePoint.Line,
+                        selection.ActivePoint.LineCharOffset,
+                        pti,
+                        new ToolboxSettings { IncludeXName = IncludeXName.IsChecked ?? false });
 
                     var (TextToInsert, InsertionLine, InsertionLineOffset) = insertLogic.GetFormattedTextAndOffsets(pti.DefaultContent);
 

@@ -8,7 +8,7 @@ namespace ProXamlToolbox.Tests
         [TestMethod]
         public void Blank_Zero_Zero()
         {
-            var sut = new InsertLogic(0, 0);
+            var sut = new InsertLogic(0, 0, BlankToolboxItem(), AllSettingsOff());
 
             var actual = sut.GetFormattedTextAndOffsets("");
 
@@ -20,7 +20,7 @@ namespace ProXamlToolbox.Tests
         [TestMethod]
         public void Something_Zero_Zero()
         {
-            var sut = new InsertLogic(0, 0);
+            var sut = new InsertLogic(0, 0, BlankToolboxItem(), AllSettingsOff());
 
             var actual = sut.GetFormattedTextAndOffsets("something");
 
@@ -32,7 +32,7 @@ namespace ProXamlToolbox.Tests
         [TestMethod]
         public void Something_Two_Two()
         {
-            var sut = new InsertLogic(2, 2);
+            var sut = new InsertLogic(2, 2, BlankToolboxItem(), AllSettingsOff());
 
             var actual = sut.GetFormattedTextAndOffsets("something");
 
@@ -44,7 +44,7 @@ namespace ProXamlToolbox.Tests
         [TestMethod]
         public void SomethingEndingWithNewLine()
         {
-            var sut = new InsertLogic(2, 2);
+            var sut = new InsertLogic(2, 2, BlankToolboxItem(), AllSettingsOff());
 
             var actual = sut.GetFormattedTextAndOffsets("something\r\n");
 
@@ -56,7 +56,7 @@ namespace ProXamlToolbox.Tests
         [TestMethod]
         public void SomethingWithNewLineInMiddle()
         {
-            var sut = new InsertLogic(2, 2);
+            var sut = new InsertLogic(2, 2, BlankToolboxItem(), AllSettingsOff());
 
             var actual = sut.GetFormattedTextAndOffsets("some\r\nthing");
 
@@ -68,7 +68,7 @@ namespace ProXamlToolbox.Tests
         [TestMethod]
         public void SomethingWithInsertPointInMiddle()
         {
-            var sut = new InsertLogic(2, 2);
+            var sut = new InsertLogic(2, 2, BlankToolboxItem(), AllSettingsOff());
 
             var actual = sut.GetFormattedTextAndOffsets("some*|*thing");
 
@@ -80,7 +80,7 @@ namespace ProXamlToolbox.Tests
         [TestMethod]
         public void SomethingWithInsertPointAtBeginning()
         {
-            var sut = new InsertLogic(2, 2);
+            var sut = new InsertLogic(2, 2, BlankToolboxItem(), AllSettingsOff());
 
             var actual = sut.GetFormattedTextAndOffsets("*|*something");
 
@@ -92,7 +92,7 @@ namespace ProXamlToolbox.Tests
         [TestMethod]
         public void InsertPointAfterNewLine()
         {
-            var sut = new InsertLogic(2, 2);
+            var sut = new InsertLogic(2, 2, BlankToolboxItem(), AllSettingsOff());
 
             var actual = sut.GetFormattedTextAndOffsets("aaa\r\nbbb*|*ccc");
 
@@ -104,7 +104,7 @@ namespace ProXamlToolbox.Tests
         [TestMethod]
         public void InsertPointAfterNewLineLonger()
         {
-            var sut = new InsertLogic(2, 2);
+            var sut = new InsertLogic(2, 2, BlankToolboxItem(), AllSettingsOff());
 
             var actual = sut.GetFormattedTextAndOffsets("aaaaa\r\nbbbbb*|*ccccc");
 
@@ -116,7 +116,7 @@ namespace ProXamlToolbox.Tests
         [TestMethod]
         public void InsertPointAfterTwoNewLines()
         {
-            var sut = new InsertLogic(2, 2);
+            var sut = new InsertLogic(2, 2, BlankToolboxItem(), AllSettingsOff());
 
             var actual = sut.GetFormattedTextAndOffsets("aaa\r\nbbb\r\nccc*|*ddd");
 
@@ -128,13 +128,23 @@ namespace ProXamlToolbox.Tests
         [TestMethod]
         public void InsertPointBeforeNewLine()
         {
-            var sut = new InsertLogic(2, 2);
+            var sut = new InsertLogic(2, 2, BlankToolboxItem(), AllSettingsOff());
 
             var actual = sut.GetFormattedTextAndOffsets("aaa*|*bbb\r\nccc");
 
             Assert.AreEqual("aaabbb\r\nccc", actual.Formatted);
             Assert.AreEqual(2, actual.LineOffset);
             Assert.AreEqual(2 + "aaa".Length, actual.PositionOffset);
+        }
+
+        private ProToolboxItem BlankToolboxItem()
+        {
+            return new ProToolboxItem();
+        }
+
+        private ToolboxSettings AllSettingsOff()
+        {
+            return new ToolboxSettings();
         }
     }
 }

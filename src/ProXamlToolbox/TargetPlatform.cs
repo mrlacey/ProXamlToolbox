@@ -3,7 +3,7 @@
 namespace ProXamlToolbox
 {
     [Flags]
-    internal enum TargetPlatform
+    public enum TargetPlatform
     {
         Maui = 1,
         WinUI = 2,

@@ -77,7 +77,9 @@ namespace ProXamlToolbox
         /// </summary>
         /// <param name="sender">The event sender.</param>
         /// <param name="e">The event args.</param>
+#pragma warning disable VSTHRD100 // Avoid async void methods
         private async void Execute(object sender, EventArgs e)
+#pragma warning restore VSTHRD100 // Avoid async void methods
         {
             await this.package.JoinableTaskFactory.RunAsync(async delegate
             {

@@ -26,8 +26,8 @@
                         </Style>
                     </StackPanel.Resources>
                     <!--<CheckBox Content="For WinUI" />-->
-                    <CheckBox Content="Prefer events" />
-                    <CheckBox Content="Prefer hardcoded strings" />
+                    <CheckBox Content="Prefer commands (over events)" />
+                    <!--<CheckBox Content="Prefer hardcoded strings" />-->
                     <!--<CheckBox Content="Prefer 'x:Bind' over 'Binding'" />-->
                     <CheckBox Content="Include accessibility info" />
                     <CheckBox x:Name="IncludeXName" Content="Include 'x:Name'" />

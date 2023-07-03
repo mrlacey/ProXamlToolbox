@@ -67,6 +67,42 @@ namespace ProXamlToolbox
                     DisplayedText = "VerticalStackLayout",
                     DefaultContent = "<VerticalStackLayout [XN]>\r\n*|*\r\n</VerticalStackLayout>",
                 },
+                new ProToolboxItem
+                {
+                    ImageMoniker = KnownMonikers.BorderElement,
+                    DisplayedText = "Border",
+                    DefaultContent = "<Border [XN]>\r\n*|*\r\n</Border>",
+                },
+                new ProToolboxItem
+                {
+                    ImageMoniker = KnownMonikers.Carousel,
+                    DisplayedText = "CarouselView",
+                    DefaultContent = "<CarouselView [XN] ItemsSource=\"{Binding PropertyName}\">\r\n<CarouselView.ItemsLayout>\r\n<LinearItemsLayout Orientation=\"Horizontal\" />\r\n</CarouselView.ItemsLayout>\r\n<CarouselView.ItemTemplate>\r\n<DataTemplate>\r\n*|*\r\n</DataTemplate>\r\n</CarouselView.ItemTemplate>\r\n</CarouselView>",
+                },
+                new ProToolboxItem
+                {
+                    ImageMoniker = KnownMonikers.ListView,
+                    DisplayedText = "CollectionView",
+                    DefaultContent = "<CollectionView [XN] ItemsSource=\"{Binding PropertyName}\" SelectionMode=\"Single\"[CMD]SelectionChangedCommand=\"{Binding CommandName}\"[EVNT]SelectionChanged=\"OnSelectionChanged\">\r\n<CollectionView.ItemTemplate>\r\n<DataTemplate>\r\n*|*\r\n</DataTemplate>\r\n</CollectionView.ItemTemplate>\r\n<CollectionView.EmptyView>\r\n<ContentView>\r\n<StackLayout HorizontalOptions=\"CenterAndExpand\"\r\nVerticalOptions=\"CenterAndExpand\">\r\n<Label Text=\"Nothing to see here.\"\r\n />\r\n</StackLayout>\r\n</ContentView>\r\n</CollectionView.EmptyView>\r\n</CollectionView>",
+                },
+                new ProToolboxItem
+                {
+                    ImageMoniker = KnownMonikers.ListView,
+                    DisplayedText = "ListView",
+                    DefaultContent = "<ListView [XN] ItemsSource=\"{Binding PropertyName}\" IsPullToRefreshEnabled=\"True\"[CMD]RefreshCommand=\"{Binding CommandName}\"[EVNT]ItemSelected=\"OnItemSelected\">\r\n<ListView.ItemTemplate>\r\n<DataTemplate>\r\n*|*\r\n</DataTemplate>\r\n</ListView.ItemTemplate>\r\n</ListView>",
+                },
+                new ProToolboxItem
+                {
+                    ImageMoniker = KnownMonikers.Refresh,
+                    DisplayedText = "RefreshView",
+                    DefaultContent = "<RefreshView [XN] IsRefreshing=\"{Binding IsRefreshing} Command=\"{Binding RefreshCommand}\" >\r\n*|*\r\n</RefreshView>",
+                },
+                new ProToolboxItem
+                {
+                    //ImageMoniker = KnownMonikers.ToggleButton,
+                    DisplayedText = "SwipeView",
+                    DefaultContent = "<SwipeView [XN] ><SwipeView.LeftItems>\r\n<SwipeItem Text=\"ChangeThis\" Command=\"{Binding CommandName}\" Clicked=\"OnSwipeItemClicked\" />\r\n</SwipeView.LeftItems>\r\n<SwipeView.RightItems>\r\n<SwipeItem Text=\"ChangeThis\" Command=\"{Binding CommandName}\" Clicked=\"OnSwipeItemClicked\" />\r\n</SwipeView.RightItems>\r\n*|*\r\n</SwipeView>\r\n",
+                },
             };
         }
 
@@ -93,33 +129,15 @@ namespace ProXamlToolbox
                 },
                 new ProToolboxItem
                 {
-                    ImageMoniker = KnownMonikers.BorderElement,
-                    DisplayedText = "Border",
-                    DefaultContent = "<Border [XN] />\r\n",
-                },
-                new ProToolboxItem
-                {
                     ImageMoniker = KnownMonikers.Button,
                     DisplayedText = "Button",
                     DefaultContent = "<Button [XN][EVNT]Clicked=\"OnButtonClicked\"[CMD]Command=\"{Binding CommandName}\" Text=\"click me\"[A11Y]SemanticProperties.Hint=\"Add a description of what happens when clicked\" />\r\n",
                 },
                 new ProToolboxItem
                 {
-                    ImageMoniker = KnownMonikers.Carousel,
-                    DisplayedText = "CarouselView",
-                    DefaultContent = "<CarouselView [XN] />\r\n",
-                },
-                new ProToolboxItem
-                {
                     ImageMoniker = KnownMonikers.CheckBoxChecked,
                     DisplayedText = "CheckBox",
                     DefaultContent = "<CheckBox [XN] />\r\n",
-                },
-                new ProToolboxItem
-                {
-                    ImageMoniker = KnownMonikers.ListView,
-                    DisplayedText = "CollectionView",
-                    DefaultContent = "<CollectionView [XN] />\r\n",
                 },
                 new ProToolboxItem
                 {
@@ -165,12 +183,6 @@ namespace ProXamlToolbox
                 },
                 new ProToolboxItem
                 {
-                    ImageMoniker = KnownMonikers.ListView,
-                    DisplayedText = "ListView",
-                    DefaultContent = "<ListView [XN] />\r\n",
-                },
-                new ProToolboxItem
-                {
                     ImageMoniker = KnownMonikers.MapTileLayer,
                     DisplayedText = "Map",
                     DefaultContent = "<!-- Make sure you add the NuGet package Microsoft.Maui.Controls.Maps -->\r\n<map:Map [XN] />\r\n",
@@ -185,7 +197,7 @@ namespace ProXamlToolbox
                 {
                     ImageMoniker = KnownMonikers.ProgressBar,
                     DisplayedText = "ProgressBar",
-                    DefaultContent = "<ProgressBar [XN] />\r\n",
+                    DefaultContent = "<ProgressBar [XN] Progress=\"{Binding Progress}\" />\r\n",
                 },
                 new ProToolboxItem
                 {
@@ -195,15 +207,9 @@ namespace ProXamlToolbox
                 },
                 new ProToolboxItem
                 {
-                    ImageMoniker = KnownMonikers.Refresh,
-                    DisplayedText = "RefreshView",
-                    DefaultContent = "<RefreshView [XN] />\r\n",
-                },
-                new ProToolboxItem
-                {
                     ImageMoniker = KnownMonikers.Search,
                     DisplayedText = "SearchBar",
-                    DefaultContent = "<SearchBar [XN] />\r\n",
+                    DefaultContent = "<SearchBar [XN] Placeholder=\"Search items...\"[CMD]SearchCommand=\"{Binding PerformSearch}\"[EVNT]SearchButtonPressed=\"OnSearchPressed\" />\r\n",
                 },
                 new ProToolboxItem
                 {
@@ -216,12 +222,6 @@ namespace ProXamlToolbox
                     ImageMoniker = KnownMonikers.ButtonGroup,
                     DisplayedText = "Stepper",
                     DefaultContent = "<Stepper [XN] />\r\n",
-                },
-                new ProToolboxItem
-                {
-                    //ImageMoniker = KnownMonikers.ToggleButton,
-                    DisplayedText = "SwipeView",
-                    DefaultContent = "<SwipeView [XN] />\r\n",
                 },
                 new ProToolboxItem
                 {

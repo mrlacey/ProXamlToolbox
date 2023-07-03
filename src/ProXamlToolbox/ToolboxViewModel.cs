@@ -99,9 +99,9 @@ namespace ProXamlToolbox
                 },
                 new ProToolboxItem
                 {
-                    //ImageMoniker = KnownMonikers.ToggleButton,
+                    ImageMoniker = KnownMonikers.TouchableDevice,
                     DisplayedText = "SwipeView",
-                    DefaultContent = "<SwipeView [XN] ><SwipeView.LeftItems>\r\n<SwipeItem Text=\"ChangeThis\" Command=\"{Binding CommandName}\" Clicked=\"OnSwipeItemClicked\" />\r\n</SwipeView.LeftItems>\r\n<SwipeView.RightItems>\r\n<SwipeItem Text=\"ChangeThis\" Command=\"{Binding CommandName}\" Clicked=\"OnSwipeItemClicked\" />\r\n</SwipeView.RightItems>\r\n*|*\r\n</SwipeView>\r\n",
+                    DefaultContent = "<SwipeView [XN] ><SwipeView.LeftItems>\r\n<SwipeItem Text=\"ChangeThis\"[CMD]Command=\"{Binding CommandName}\"[EVNT]Invoked=\"OnSwipeItemInvoked\" />\r\n</SwipeView.LeftItems>\r\n*|*\r\n</SwipeView>\r\n",
                 },
             };
         }

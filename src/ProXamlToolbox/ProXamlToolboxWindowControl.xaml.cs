@@ -25,10 +25,21 @@ namespace ProXamlToolbox
             {
                 if (sender is FrameworkElement fe && fe.DataContext is ProToolboxItem pti)
                 {
-                    DragDrop.DoDragDrop(
-                        fe,
-                        pti.DefaultContent.Replace(ProToolboxItem.CursorPlaceholder, string.Empty),
-                        DragDropEffects.Copy);
+                    // Ensure what it dropped is formatted correctly
+                    var insertLogic = new InsertLogic(
+                        -1,
+                        -1,
+                        pti,
+                        new ToolboxSettings
+                        {
+                            IncludeXName = IncludeXName.IsChecked ?? false,
+                            PreferCommands = PreferCommands.IsChecked ?? false,
+                            IncludeA11y = IncludeA11y.IsChecked ?? false,
+                        });
+
+                    var textToInsert = insertLogic.MakeTextReplacements(pti.DefaultContent);
+
+                    DragDrop.DoDragDrop(fe, textToInsert, DragDropEffects.Copy);
                 }
             }
         }

@@ -43,7 +43,7 @@
 
                 <TextBlock
                     Margin="4"
-                    FontWeight="SemiBold"
+                    FontWeight="Bold"
                     Text="Layouts" />
                 <ListView
                     Background="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowBackgroundKey}}"
@@ -87,7 +87,7 @@
                 </ListView>
                 <TextBlock
                     Margin="4"
-                    FontWeight="SemiBold"
+                    FontWeight="Bold"
                     Text="Controls" />
                 <ListView
                     Background="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowBackgroundKey}}"

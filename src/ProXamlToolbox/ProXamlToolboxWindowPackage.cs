@@ -1,16 +1,9 @@
 ﻿using System;
-using System.ComponentModel.Design;
-using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
 using System.Runtime.InteropServices;
 using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.VisualStudio;
-using Microsoft.VisualStudio.OLE.Interop;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
-using Microsoft.Win32;
 using Task = System.Threading.Tasks.Task;
 
 namespace ProXamlToolbox
@@ -56,8 +49,6 @@ namespace ProXamlToolbox
             // initialization is the Initialize method.
         }
 
-        #region Package Members
-
         /// <summary>
         /// Initialization of the package; this method is called right after the package is sited, so this is the place
         /// where you can put all the initialization code that rely on services provided by VisualStudio.
@@ -88,12 +79,10 @@ namespace ProXamlToolbox
         {
             if (toolWindowType == typeof(ProXamlToolboxWindow))
             {
-                return "ProXamlToolboxWindow loading";
+                return "Pro XAML Toolbox - loading";
             }
 
             return base.GetToolWindowTitle(toolWindowType, id);
         }
-
-        #endregion
     }
 }

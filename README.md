@@ -2,11 +2,11 @@
 
 It's like the standard Visual Studio Toolbox but **much** better.
 
-
+![Screenshot showing the Pro XAML Toolbox in light and dark themes](.//art/screenshot-darkandlight.png)
 
 **Currently supporting .NET MAUI**. _[WPF](https://github.com/mrlacey/ProXamlToolbox/issues/2), & [WinUI](https://github.com/mrlacey/ProXamlToolbox/issues/1) support coming soon - maybe._
 
-A [Rapid XAML Toolkit](https://github.com/mrlacey/rapid-xaml-toolkit) experiment. If/when this ships beyond an experiment/preview, it will be moved to that project and repository.
+:alembic: A [Rapid XAML Toolkit](https://github.com/mrlacey/rapid-xaml-toolkit) experiment. If/when this ships beyond an experiment/preview, it will be moved to that project and repository.
 
 ---
 

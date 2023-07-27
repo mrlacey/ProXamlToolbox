@@ -2,7 +2,7 @@
 
 It's like the standard Visual Studio Toolbox but **much** better.
 
-![Screenshot showing the Pro XAML Toolbox in light and dark themes](.//art/screenshot-darkandlight.png)
+![Screenshot showing the Pro XAML Toolbox in light and dark themes](./art/screenshot-darkandlight.png)
 
 **Currently supporting .NET MAUI**. _[WPF](https://github.com/mrlacey/ProXamlToolbox/issues/2), & [WinUI](https://github.com/mrlacey/ProXamlToolbox/issues/1) support coming soon - maybe._
 

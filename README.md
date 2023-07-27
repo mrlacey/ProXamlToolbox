@@ -45,6 +45,12 @@ This means that if you want two `Button`s inside a `Grid` you can double-click t
 
 Not bad for **only 3 [double-]clicks**. Just imagine how many keystrokes that saves you!
 
+### It doesn't (& cant) do everything
+
+Look at the above code and you'll see that it's not 100% how you'd want in your code. This is intentional. It doesn't know what name you might want to give your `Grid` or what the `Text` or `Hint` should be on each `Button`.
+
+However, it's easier to change placeholder values than to have to write everything from scratch. It's also easier for people who don't know what properties are available (or should be set).
+
 ### It's configurable!
 
 Yes, you can choose between common preferences for coding style and requirements.

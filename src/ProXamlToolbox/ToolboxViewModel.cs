@@ -16,6 +16,7 @@ namespace ProXamlToolbox
 
         public ObservableCollection<ProToolboxItem> ControlItems { get; set; }
 
+        // TODO: add validation tests of all default item content
         private ObservableCollection<ProToolboxItem> GetDefaultLayoutItems()
         {
             return new ObservableCollection<ProToolboxItem> {
@@ -29,7 +30,7 @@ namespace ProXamlToolbox
                 {
                     ImageMoniker = KnownMonikers.FrameContainer,
                     DisplayedText = "Frame",
-                    DefaultContent = "<Frame [XN]>\r\n*|*\r\n</ContentView>",
+                    DefaultContent = "<Frame [XN]>\r\n*|*\r\n</Frame>",
                 },
                 new ProToolboxItem
                 {

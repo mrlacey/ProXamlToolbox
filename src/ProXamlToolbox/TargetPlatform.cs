@@ -7,6 +7,7 @@ namespace ProXamlToolbox
     {
         Maui = 1,
         WinUI = 2,
+        Wpf = 4,
         MauiAndWinui = Maui | WinUI,
     }
 }

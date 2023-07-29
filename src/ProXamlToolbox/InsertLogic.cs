@@ -49,6 +49,16 @@ namespace ProXamlToolbox
                     // TODO: change to searching for second quote (the closing one) as may not always be followed by a space
                     var eEndIndex = result.IndexOf("\" ", eIndex);
 
+                    if (eEndIndex == -1)
+                    {
+                        eEndIndex = result.IndexOf("\">", eIndex);
+                    }
+
+                    if (eEndIndex == -1)
+                    {
+                        System.Diagnostics.Debugger.Break();
+                    }
+
                     var eEnd = result.Substring(eEndIndex + 1);
                     result = result.Substring(0, eIndex) + eEnd;
                 }
@@ -65,6 +75,16 @@ namespace ProXamlToolbox
 
                     // TODO: change to searching for second quote
                     var cEndIndex = result.IndexOf("\" ", cIndex);
+
+                    if (cEndIndex == -1)
+                    {
+                        cEndIndex = result.IndexOf("\">", cIndex);
+                    }
+
+                    if (cEndIndex == -1)
+                    {
+                        System.Diagnostics.Debugger.Break();
+                    }
 
                     var cEnd = result.Substring(cEndIndex + 1);
                     result = result.Substring(0, cIndex) + cEnd;
@@ -83,6 +103,16 @@ namespace ProXamlToolbox
 
                     // TODO: change to searching for second quote
                     var aEndIndex = result.IndexOf("\" ", aIndex);
+
+                    if (aEndIndex == -1)
+                    {
+                        aEndIndex = result.IndexOf("\">", aIndex);
+                    }
+
+                    if (aEndIndex == -1)
+                    {
+                        System.Diagnostics.Debugger.Break();
+                    }
 
                     var aEnd = result.Substring(aEndIndex + 1);
                     result = result.Substring(0, aIndex) + aEnd;

@@ -37,7 +37,9 @@ namespace ProXamlToolbox
                             IncludeA11y = IncludeA11y.IsChecked ?? false,
                         });
 
-                    var textToInsert = insertLogic.MakeTextReplacements(pti.DefaultContent);
+                    var textToInsert =
+                        insertLogic.MakeTextReplacements(pti.DefaultContent)
+                                   .Replace(ProToolboxItem.CursorPlaceholder, string.Empty);
 
                     DragDrop.DoDragDrop(fe, textToInsert, DragDropEffects.Copy);
                 }

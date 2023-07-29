@@ -96,7 +96,7 @@ namespace ProXamlToolbox
                 {
                     ImageMoniker = KnownMonikers.Refresh,
                     DisplayedText = "RefreshView",
-                    DefaultContent = "<RefreshView [XN] IsRefreshing=\"{Binding IsRefreshing} Command=\"{Binding RefreshCommand}\" >\r\n*|*\r\n</RefreshView>",
+                    DefaultContent = "<RefreshView [XN] IsRefreshing=\"{Binding IsRefreshing}\" Command=\"{Binding RefreshCommand}\" >\r\n*|*\r\n</RefreshView>",
                 },
                 new ProToolboxItem
                 {

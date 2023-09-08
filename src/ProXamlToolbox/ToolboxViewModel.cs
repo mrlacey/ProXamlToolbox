@@ -112,15 +112,15 @@ namespace ProXamlToolbox
             return new ObservableCollection<ProToolboxItem> {
                 new ProToolboxItem
                 {
-                    ImageMoniker = KnownMonikers.Box,
-                    DisplayedText = "BoxView",
-                    DefaultContent = "<BoxView [XN] />\r\n",
+                    ImageMoniker = KnownMonikers.Activity,
+                    DisplayedText = "ActivityIndicator",
+                    DefaultContent = "<ActivityIndicator [XN] IsRunning=\"True\" IsVisible=\"True\" />\r\n",
                 },
                 new ProToolboxItem
                 {
-                    ImageMoniker = KnownMonikers.Activity,
-                    DisplayedText = "ActivityIndicator",
-                    DefaultContent = "<ActivityIndicator [XN] />\r\n",
+                    ImageMoniker = KnownMonikers.Box,
+                    DisplayedText = "BoxView",
+                    DefaultContent = "<BoxView [XN] Color=\"Red\" />\r\n",
                 },
                 new ProToolboxItem
                 {
@@ -138,12 +138,13 @@ namespace ProXamlToolbox
                 {
                     ImageMoniker = KnownMonikers.CheckBoxChecked,
                     DisplayedText = "CheckBox",
-                    DefaultContent = "<CheckBox [XN] />\r\n",
+                    DefaultContent = "<CheckBox [XN] IsChecked=\"True\"[EVNT]CheckedChanged=\"OnCheckboxCheckedChanged\" />\r\n",
                 },
                 new ProToolboxItem
                 {
                     ImageMoniker = KnownMonikers.DateTimePicker,
                     DisplayedText = "DatePicker",
+                    //DefaultContent = "<DatePicker [XN] Date=\"{x:Static sys:DateTime.Now}\" />\r\n",
                     DefaultContent = "<DatePicker [XN] />\r\n",
                 },
                 new ProToolboxItem
@@ -160,7 +161,7 @@ namespace ProXamlToolbox
                 },
                 new ProToolboxItem
                 {
-                    //ImageMoniker = KnownMonikers.ListView,
+                    ImageMoniker = KnownMonikers.ContentPlaceholder,
                     DisplayedText = "GraphicsView",
                     DefaultContent = "<GraphicsView [XN] />\r\n",
                 },
@@ -168,13 +169,13 @@ namespace ProXamlToolbox
                 {
                     ImageMoniker = KnownMonikers.Image,
                     DisplayedText = "Image",
-                    DefaultContent = "<Image [XN] Source=\"PATH-TO-IMAGE\" />\r\n",
+                    DefaultContent = "<Image [XN] Source=\"PATH-TO-IMAGE\" HeightRequest=\"100\" WidthRequest=\"100\" />\r\n",
                 },
                 new ProToolboxItem
                 {
                     ImageMoniker = KnownMonikers.ImageButton,
                     DisplayedText = "ImageButton",
-                    DefaultContent = "<ImageButton [XN] Source=\"PATH-TO-IMAGE\" />\r\n",
+                    DefaultContent = "<ImageButton [XN] Source=\"PATH-TO-IMAGE\"[EVNT]Clicked=\"OnButtonClicked\"[CMD]Command=\"{Binding CommandName}\" />\r\n",
                 },
                 new ProToolboxItem
                 {

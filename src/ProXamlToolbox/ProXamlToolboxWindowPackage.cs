@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 using System.Threading;
 using Microsoft.VisualStudio.Shell;
@@ -29,14 +28,17 @@ namespace ProXamlToolbox
     [InstalledProductRegistration(Vsix.Name, Vsix.Description, Vsix.Version, IconResourceID = 400)] // Info on this package for Help/About
     [ProvideMenuResource("Menus.ctmenu", 1)]
     [ProvideToolWindow(typeof(ProXamlToolboxWindow))]
+    [ProvideToolWindowVisibility(typeof(ProXamlToolboxWindow), UIContextGuid, bringToFront: true)]
+    [ProvideUIContextRule(UIContextGuid,
+            name: "Active editor is XAML file",
+            expression: "xamlFile",
+            termNames: new[] { "xamlFile" },
+            termValues: new[] { "ActiveEditorContentType:XAML" })]
     [Guid(ProXamlToolboxWindowPackage.PackageGuidString)]
-    [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "pkgdef, VS and vsixmanifest are valid VS terms")]
     public sealed class ProXamlToolboxWindowPackage : AsyncPackage
     {
-        /// <summary>
-        /// ProXamlToolboxWindowPackage GUID string.
-        /// </summary>
         public const string PackageGuidString = "019055aa-844e-41ef-a28c-9daf3ff9ba11";
+        public const string UIContextGuid = "7E4B9E65-D661-4CEA-B2CD-99F5200397B4";
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ProXamlToolboxWindowPackage"/> class.

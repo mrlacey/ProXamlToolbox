@@ -60,7 +60,7 @@ namespace ProXamlToolbox
                 {
                     ImageMoniker = KnownMonikers.FrameContainer,
                     DisplayedText = "Frame",
-                    DefaultContent = "<Frame [XN]>\r\n*|*\r\n</Frame>",
+                    DefaultContent = "<Frame [XN] BorderColor=\"HotPink\" CornerRadius=\"10\">\r\n*|*\r\n</Frame>",
                 },
                 new ProToolboxItem
                 {
@@ -100,6 +100,12 @@ namespace ProXamlToolbox
                 },
                 new ProToolboxItem
                 {
+                    ImageMoniker = KnownMonikers.AppearanceGrid,
+                    DisplayedText = "TableView",
+                    DefaultContent = "<TableView [XN] Intent=\"Menu\">\r\n<TableRoot>\r\n*|*\r\n</TableRoot>\r\n</TableView>\r\n",
+                },
+                new ProToolboxItem
+                {
                     ImageMoniker = KnownMonikers.AlignHorizontalStretch,
                     DisplayedText = "VerticalStackLayout",
                     DefaultContent = "<VerticalStackLayout [XN]>\r\n*|*\r\n</VerticalStackLayout>",
@@ -126,7 +132,7 @@ namespace ProXamlToolbox
                 {
                     ImageMoniker = KnownMonikers.WebApplication,
                     DisplayedText = "BlazorWebView",
-                    DefaultContent = "<BlazorWebView [XN] />\r\n",
+                    DefaultContent = "<BlazorWebView [XN] HostPage=\"wwwroot/index.html\">\r\n<BlazorWebView.RootComponents>\r\n<RootComponent Selector=\"#app\" ComponentType=\"{x:Type local:Main}\" />\r\n</BlazorWebView.RootComponents>\r\n</BlazorWebView>\r\n",
                 },
                 new ProToolboxItem
                 {
@@ -151,25 +157,25 @@ namespace ProXamlToolbox
                 {
                     ImageMoniker = KnownMonikers.Editor,
                     DisplayedText = "Editor",
-                    DefaultContent = "<Editor [XN] />\r\n",
+                    DefaultContent = "<Editor [XN] Placeholder=\"CHANGEME\" AutoSize=\"TextChanges\" Keyboard=\"Default\" />\r\n",
                 },
                 new ProToolboxItem
                 {
                     ImageMoniker = KnownMonikers.TextBox,
                     DisplayedText = "Entry",
-                    DefaultContent = "<Entry [XN] Text=\"{Binding PropertyName}\" Placeholder=\"CHANGEME\" />\r\n",
+                    DefaultContent = "<Entry [XN] Text=\"{Binding PropertyName}\" Placeholder=\"CHANGEME\" Keyboard=\"Default\" ClearButtonVisibility=\"WhileEditing\"  />\r\n",
                 },
                 new ProToolboxItem
                 {
                     ImageMoniker = KnownMonikers.ContentPlaceholder,
                     DisplayedText = "GraphicsView",
-                    DefaultContent = "<GraphicsView [XN] />\r\n",
+                    DefaultContent = "<GraphicsView [XN] HeightRequest=\"250\" WidthRequest=\"350\" />\r\n",
                 },
                 new ProToolboxItem
                 {
                     ImageMoniker = KnownMonikers.Image,
                     DisplayedText = "Image",
-                    DefaultContent = "<Image [XN] Source=\"PATH-TO-IMAGE\" HeightRequest=\"100\" WidthRequest=\"100\" />\r\n",
+                    DefaultContent = "<Image [XN] Source=\"PATH-TO-IMAGE\" HeightRequest=\"100\" WidthRequest=\"100\" Aspect=\"AspectFill\" />\r\n",
                 },
                 new ProToolboxItem
                 {
@@ -191,9 +197,15 @@ namespace ProXamlToolbox
                 },
                 new ProToolboxItem
                 {
+                    ImageMoniker = KnownMonikers.PasswordBox,
+                    DisplayedText = "Password",
+                    DefaultContent = "<Entry [XN] Text=\"{Binding Password}\" IsPassword=\"True\" Keyboard=\"Default\" />\r\n",
+                },
+                new ProToolboxItem
+                {
                     ImageMoniker = KnownMonikers.Picker,
                     DisplayedText = "Picker",
-                    DefaultContent = "<Picker [XN] />\r\n",
+                    DefaultContent = "<Picker [XN] Title=\"Pick something\" ItemsSource=\"{Binding Items}\" ItemDisplayBinding=\"{Binding ItemName}\" SelectedItem=\"{Binding SelectedItem}\" />\r\n",
                 },
                 new ProToolboxItem
                 {
@@ -205,7 +217,7 @@ namespace ProXamlToolbox
                 {
                     ImageMoniker = KnownMonikers.RadioButton,
                     DisplayedText = "RadioButton",
-                    DefaultContent = "<RadioButton [XN] />\r\n",
+                    DefaultContent = "<RadioButton [XN] Content=\"Set This\" GroupName=\"ChangeThis\" />\r\n",
                 },
                 new ProToolboxItem
                 {
@@ -217,25 +229,19 @@ namespace ProXamlToolbox
                 {
                     ImageMoniker = KnownMonikers.Slider,
                     DisplayedText = "Slider",
-                    DefaultContent = "<Slider [XN] />\r\n",
+                    DefaultContent = "<Slider [XN] ValueChanged=\"OnSliderValueChanged\" />\r\n",
                 },
                 new ProToolboxItem
                 {
                     ImageMoniker = KnownMonikers.ButtonGroup,
                     DisplayedText = "Stepper",
-                    DefaultContent = "<Stepper [XN] />\r\n",
+                    DefaultContent = "<Stepper [XN] Minimum=\"0\" Maximum=\"100\" Increment=\"10\" />\r\n",
                 },
                 new ProToolboxItem
                 {
                     ImageMoniker = KnownMonikers.ToggleButton,
                     DisplayedText = "Switch",
-                    DefaultContent = "<Switch [XN] />\r\n",
-                },
-                new ProToolboxItem
-                {
-                    ImageMoniker = KnownMonikers.AppearanceGrid,
-                    DisplayedText = "TableView",
-                    DefaultContent = "<TableView [XN] />\r\n",
+                    DefaultContent = "<Switch [XN] OnColor=\"Orange\" />\r\n",
                 },
                 new ProToolboxItem
                 {
@@ -247,7 +253,7 @@ namespace ProXamlToolbox
                 {
                     ImageMoniker = KnownMonikers.WebApplication,
                     DisplayedText = "WebView",
-                    DefaultContent = "<WebView [XN] />\r\n",
+                    DefaultContent = "<WebView [XN] Source=\"https://github.com/sponsors/mrlacey/\" />\r\n",
                 },
             };
         }

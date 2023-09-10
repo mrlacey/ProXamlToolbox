@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33717.318
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProXamlToolbox", ".\ProXamlToolbox\ProXamlToolbox.csproj", "{4EFFD54E-DC16-41E7-A523-AF78EF8AF4D3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProXamlToolbox", "ProXamlToolbox\ProXamlToolbox.csproj", "{4EFFD54E-DC16-41E7-A523-AF78EF8AF4D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProXamlToolbox.Tests", ".\ProXamlToolbox.Tests\ProXamlToolbox.Tests.csproj", "{D3B81B5D-157E-4E08-8B50-8545A9E434C4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProXamlToolbox.Tests", "ProXamlToolbox.Tests\ProXamlToolbox.Tests.csproj", "{D3B81B5D-157E-4E08-8B50-8545A9E434C4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{14A7D258-9BCC-45AF-81A0-017E9BCDC870}"
+	ProjectSection(SolutionItems) = preProject
+		..\README.md = ..\README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

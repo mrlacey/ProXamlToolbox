@@ -22,51 +22,9 @@ namespace ProXamlToolbox
             return new ObservableCollection<ProToolboxItem> {
                 new ProToolboxItem
                 {
-                    ImageMoniker = KnownMonikers.FrameSet,
-                    DisplayedText = "ContentView",
-                    DefaultContent = "<ContentView [XN]>\r\n*|*\r\n</ContentView>",
-                },
-                new ProToolboxItem
-                {
-                    ImageMoniker = KnownMonikers.FrameContainer,
-                    DisplayedText = "Frame",
-                    DefaultContent = "<Frame [XN]>\r\n*|*\r\n</Frame>",
-                },
-                new ProToolboxItem
-                {
-                    ImageMoniker = KnownMonikers.ScrollBox,
-                    DisplayedText = "ScrollView",
-                    DefaultContent = "<ScrollView [XN]>\r\n*|*\r\n</ScrollView>",
-                },
-                new ProToolboxItem
-                {
                     ImageMoniker = KnownMonikers.LayoutPanel,
                     DisplayedText = "AbsoluteLayout",
                     DefaultContent = "<AbsoluteLayout [XN]>\r\n*|*\r\n</AbsoluteLayout>",
-                },
-                new ProToolboxItem
-                {
-                    ImageMoniker = KnownMonikers.FlowLayoutPanel,
-                    DisplayedText = "FlexLayout",
-                    DefaultContent = "<FlexLayout [XN]>\r\n*|*\r\n</FlexLayout>",
-                },
-                new ProToolboxItem
-                {
-                    ImageMoniker = KnownMonikers.Grid,
-                    DisplayedText = "Grid",
-                    DefaultContent = "<Grid [XN] RowDefinitions=\"Auto,Auto,*\" ColumnDefinitions=\"*,*\">\r\n*|*\r\n</Grid>",
-                },
-                new ProToolboxItem
-                {
-                    ImageMoniker = KnownMonikers.AlignVerticalStretch,
-                    DisplayedText = "HorizontalStackLayout",
-                    DefaultContent = "<HorizontalStackLayout [XN]>\r\n*|*\r\n</HorizontalStackLayout>",
-                },
-                new ProToolboxItem
-                {
-                    ImageMoniker = KnownMonikers.AlignHorizontalStretch,
-                    DisplayedText = "VerticalStackLayout",
-                    DefaultContent = "<VerticalStackLayout [XN]>\r\n*|*\r\n</VerticalStackLayout>",
                 },
                 new ProToolboxItem
                 {
@@ -88,6 +46,36 @@ namespace ProXamlToolbox
                 },
                 new ProToolboxItem
                 {
+                    ImageMoniker = KnownMonikers.FrameSet,
+                    DisplayedText = "ContentView",
+                    DefaultContent = "<ContentView [XN]>\r\n*|*\r\n</ContentView>",
+                },
+                new ProToolboxItem
+                {
+                    ImageMoniker = KnownMonikers.FlowLayoutPanel,
+                    DisplayedText = "FlexLayout",
+                    DefaultContent = "<FlexLayout [XN]>\r\n*|*\r\n</FlexLayout>",
+                },
+                new ProToolboxItem
+                {
+                    ImageMoniker = KnownMonikers.FrameContainer,
+                    DisplayedText = "Frame",
+                    DefaultContent = "<Frame [XN]>\r\n*|*\r\n</Frame>",
+                },
+                new ProToolboxItem
+                {
+                    ImageMoniker = KnownMonikers.Grid,
+                    DisplayedText = "Grid",
+                    DefaultContent = "<Grid [XN] RowDefinitions=\"Auto,Auto,*\" ColumnDefinitions=\"*,*\">\r\n*|*\r\n</Grid>",
+                },
+                new ProToolboxItem
+                {
+                    ImageMoniker = KnownMonikers.AlignVerticalStretch,
+                    DisplayedText = "HorizontalStackLayout",
+                    DefaultContent = "<HorizontalStackLayout [XN]>\r\n*|*\r\n</HorizontalStackLayout>",
+                },
+                new ProToolboxItem
+                {
                     ImageMoniker = KnownMonikers.ListView,
                     DisplayedText = "ListView",
                     DefaultContent = "<ListView [XN] ItemsSource=\"{Binding PropertyName}\" IsPullToRefreshEnabled=\"True\"[CMD]RefreshCommand=\"{Binding CommandName}\"[EVNT]ItemSelected=\"OnItemSelected\">\r\n<ListView.ItemTemplate>\r\n<DataTemplate>\r\n*|*\r\n</DataTemplate>\r\n</ListView.ItemTemplate>\r\n</ListView>",
@@ -100,9 +88,21 @@ namespace ProXamlToolbox
                 },
                 new ProToolboxItem
                 {
+                    ImageMoniker = KnownMonikers.ScrollBox,
+                    DisplayedText = "ScrollView",
+                    DefaultContent = "<ScrollView [XN]>\r\n*|*\r\n</ScrollView>",
+                },
+                new ProToolboxItem
+                {
                     ImageMoniker = KnownMonikers.TouchableDevice,
                     DisplayedText = "SwipeView",
                     DefaultContent = "<SwipeView [XN] ><SwipeView.LeftItems>\r\n<SwipeItem Text=\"ChangeThis\"[CMD]Command=\"{Binding CommandName}\"[EVNT]Invoked=\"OnSwipeItemInvoked\" />\r\n</SwipeView.LeftItems>\r\n*|*\r\n</SwipeView>\r\n",
+                },
+                new ProToolboxItem
+                {
+                    ImageMoniker = KnownMonikers.AlignHorizontalStretch,
+                    DisplayedText = "VerticalStackLayout",
+                    DefaultContent = "<VerticalStackLayout [XN]>\r\n*|*\r\n</VerticalStackLayout>",
                 },
             };
         }

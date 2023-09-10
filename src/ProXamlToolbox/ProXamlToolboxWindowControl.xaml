@@ -84,7 +84,6 @@
 
                                 <TextBlock
                                     Grid.Column="1"
-                                    Foreground="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowTextKey}}"
                                     Text="{Binding DisplayedText}" />
                             </Grid>
                         </DataTemplate>

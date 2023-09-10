@@ -4,14 +4,20 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:imaging="clr-namespace:Microsoft.VisualStudio.Imaging;assembly=Microsoft.VisualStudio.Imaging"
+             xmlns:theming="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Imaging"
+             xmlns:util="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Utilities"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vsshell="clr-namespace:Microsoft.VisualStudio.Shell;assembly=Microsoft.VisualStudio.Shell.15.0"
-    Name="MyToolWindow"
+    xmlns:platform="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.15.0"
+             xmlns:toolkit="clr-namespace:Community.VisualStudio.Toolkit;assembly=Community.VisualStudio.Toolkit"
     d:DesignHeight="300"
     d:DesignWidth="300"
-    Background="{DynamicResource {x:Static vsshell:VsBrushes.WindowKey}}"
-    Foreground="{DynamicResource {x:Static vsshell:VsBrushes.WindowTextKey}}"
+    UseLayoutRounding="True"
+             toolkit:Themes.UseVsTheme="True"
     mc:Ignorable="d">
+    <UserControl.Resources>
+        <util:BrushToColorConverter x:Key="BrushToColorConverter"/>
+    </UserControl.Resources>
     <Grid>
         <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
             <StackPanel Orientation="Vertical">
@@ -46,11 +52,11 @@
                     FontWeight="Bold"
                     Text="Layouts" />
                 <ListView
-                    Background="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowBackgroundKey}}"
                     BorderThickness="0"
                     ItemsSource="{Binding LayoutItems}"
                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                     SelectionMode="Single"
+                    theming:ImageThemingUtilities.ImageBackgroundColor="{Binding Background, RelativeSource={RelativeSource Self}, Converter={StaticResource BrushToColorConverter}}"
                     VirtualizingPanel.VirtualizationMode="Recycling">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="{x:Type ListViewItem}">
@@ -69,7 +75,6 @@
                                     <ColumnDefinition Width="24" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
-
 
                                 <imaging:CrispImage
                                     MinWidth="16"
@@ -90,11 +95,11 @@
                     FontWeight="Bold"
                     Text="Controls" />
                 <ListView
-                    Background="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowBackgroundKey}}"
                     BorderThickness="0"
                     ItemsSource="{Binding ControlItems}"
                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                     SelectionMode="Single"
+                    theming:ImageThemingUtilities.ImageBackgroundColor="{Binding Background, RelativeSource={RelativeSource Self}, Converter={StaticResource BrushToColorConverter}}"
                     VirtualizingPanel.VirtualizationMode="Recycling">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="{x:Type ListViewItem}">
@@ -114,7 +119,6 @@
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
 
-
                                 <imaging:CrispImage
                                     MinWidth="16"
                                     MinHeight="16"
@@ -123,7 +127,6 @@
 
                                 <TextBlock
                                     Grid.Column="1"
-                                    Foreground="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowTextKey}}"
                                     Text="{Binding DisplayedText}" />
                             </Grid>
                         </DataTemplate>

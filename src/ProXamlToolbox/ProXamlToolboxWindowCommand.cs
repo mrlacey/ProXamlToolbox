@@ -1,94 +1,13 @@
-﻿using System;
-using System.ComponentModel.Design;
+﻿using Community.VisualStudio.Toolkit;
 using Microsoft.VisualStudio.Shell;
 using Task = System.Threading.Tasks.Task;
 
 namespace ProXamlToolbox
 {
-    internal sealed class ProXamlToolboxWindowCommand
+    [Command(PackageIds.ProXamlToolboxWindowCommandId)]
+    internal sealed class ShowToolWindow : BaseCommand<ShowToolWindow>
     {
-        /// <summary>
-        /// Command ID.
-        /// </summary>
-        public const int CommandId = 0x0100;
-
-        /// <summary>
-        /// Command menu group (command set GUID).
-        /// </summary>
-        public static readonly Guid CommandSet = new Guid("e3eff216-5897-4190-8950-7cf21985c50e");
-
-        /// <summary>
-        /// VS Package that provides this command, not null.
-        /// </summary>
-        private readonly AsyncPackage package;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ProXamlToolboxWindowCommand"/> class.
-        /// Adds our command handlers for menu (commands must exist in the command table file)
-        /// </summary>
-        /// <param name="package">Owner package, not null.</param>
-        /// <param name="commandService">Command service to add command to, not null.</param>
-        private ProXamlToolboxWindowCommand(AsyncPackage package, OleMenuCommandService commandService)
-        {
-            this.package = package ?? throw new ArgumentNullException(nameof(package));
-            commandService = commandService ?? throw new ArgumentNullException(nameof(commandService));
-
-            var menuCommandID = new CommandID(CommandSet, CommandId);
-            var menuItem = new MenuCommand(this.Execute, menuCommandID);
-            commandService.AddCommand(menuItem);
-        }
-
-        /// <summary>
-        /// Gets the instance of the command.
-        /// </summary>
-        public static ProXamlToolboxWindowCommand Instance
-        {
-            get;
-            private set;
-        }
-
-        /// <summary>
-        /// Gets the service provider from the owner package.
-        /// </summary>
-        private Microsoft.VisualStudio.Shell.IAsyncServiceProvider ServiceProvider
-        {
-            get
-            {
-                return this.package;
-            }
-        }
-
-        /// <summary>
-        /// Initializes the singleton instance of the command.
-        /// </summary>
-        /// <param name="package">Owner package, not null.</param>
-        public static async Task InitializeAsync(AsyncPackage package)
-        {
-            // Switch to the main thread - the call to AddCommand in ProXamlToolboxWindowCommand's constructor requires
-            // the UI thread.
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(package.DisposalToken);
-
-            OleMenuCommandService commandService = await package.GetServiceAsync((typeof(IMenuCommandService))) as OleMenuCommandService;
-            Instance = new ProXamlToolboxWindowCommand(package, commandService);
-        }
-
-        /// <summary>
-        /// Shows the tool window when the menu item is clicked.
-        /// </summary>
-        /// <param name="sender">The event sender.</param>
-        /// <param name="e">The event args.</param>
-#pragma warning disable VSTHRD100 // Avoid async void methods
-        private async void Execute(object sender, EventArgs e)
-#pragma warning restore VSTHRD100 // Avoid async void methods
-        {
-            await this.package.JoinableTaskFactory.RunAsync(async delegate
-            {
-                ToolWindowPane window = await this.package.ShowToolWindowAsync(typeof(ProXamlToolboxWindow), 0, true, this.package.DisposalToken);
-                if ((null == window) || (null == window.Frame))
-                {
-                    throw new NotSupportedException("Cannot create Pro XAML Toolbox window.");
-                }
-            });
-        }
+        protected override Task ExecuteAsync(OleMenuCmdEventArgs e) =>
+            ProXamlToolboxWindow.ShowAsync();
     }
 }

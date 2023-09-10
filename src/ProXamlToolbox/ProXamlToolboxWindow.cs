@@ -1,34 +1,34 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows;
+using Community.VisualStudio.Toolkit;
+using Microsoft.VisualStudio.Imaging;
 using Microsoft.VisualStudio.Shell;
 
 namespace ProXamlToolbox
 {
-    /// <summary>
-    /// This class implements the tool window exposed by this package and hosts a user control.
-    /// </summary>
-    /// <remarks>
-    /// In Visual Studio tool windows are composed of a frame (implemented by the shell) and a pane,
-    /// usually implemented by the package implementer.
-    /// <para>
-    /// This class derives from the ToolWindowPane class provided from the MPF in order to use its
-    /// implementation of the IVsUIElementPane interface.
-    /// </para>
-    /// </remarks>
-    [Guid("384a236c-d033-48e1-a04b-425ae4dc1f64")]
-    public class ProXamlToolboxWindow : ToolWindowPane
+    public class ProXamlToolboxWindow : BaseToolWindow<ProXamlToolboxWindow>
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ProXamlToolboxWindow"/> class.
-        /// </summary>
-        public ProXamlToolboxWindow() : base(null)
-        {
-            this.Caption = "Pro XAML Toolbox";
+        public override string GetTitle(int toolWindowId) => "Pro XAML Toolbox";
 
-            // This is the user control hosted by the tool window; Note that, even if this class implements IDisposable,
-            // we are not calling Dispose on this object. This is because ToolWindowPane calls Dispose on
-            // the object returned by the Content property.
-            this.Content = new ProXamlToolboxWindowControl();
+        public override Type PaneType => typeof(Pane);
+
+        public override async Task<FrameworkElement> CreateAsync(int toolWindowId, CancellationToken cancellationToken)
+        {
+            await Package.JoinableTaskFactory.SwitchToMainThreadAsync();
+
+            return new ProXamlToolboxWindowControl();
+        }
+
+        [Guid("A6830831-ECBF-434E-A60F-40A16E714429")]
+        public class Pane : ToolWindowPane
+        {
+            public Pane()
+            {
+                BitmapImageMoniker = KnownMonikers.ToolBox;
+            }
         }
     }
 }

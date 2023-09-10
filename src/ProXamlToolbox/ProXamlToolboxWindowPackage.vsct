@@ -3,6 +3,7 @@
 
   <Extern href="stdidcmd.h"/>
   <Extern href="vsshlids.h"/>
+  <Include href="VSGlobals.vsct" />
 
   <Commands package="guidProXamlToolboxWindowPackage">
     <Buttons>

@@ -17,6 +17,13 @@ jobs:
       version: ${{ steps.vsix_version.outputs.version-number }}
     name: Build 
     runs-on: windows-2022
+    
+    permissions:
+      checks: write
+
+      # needed unless run with comment_mode: off
+      pull-requests: write
+
     env:
       Configuration: Debug
       DeployExtension: False
@@ -57,6 +64,7 @@ jobs:
         searchFolder: /_built/
         testAssembly: /**/*Tests.dll
 
+# https://github.com/mrlacey/ProXamlToolbox/issues/11
     - name: Publish Test Results
       uses: EnricoMi/publish-unit-test-result-action/windows@v2
       id: test-results

@@ -58,12 +58,6 @@ namespace ProXamlToolbox
 				},
 				new ProToolboxItem
 				{
-					ImageMoniker = KnownMonikers.FrameContainer,
-					DisplayedText = "Frame",
-					DefaultContent = "<Frame [XN] BorderColor=\"HotPink\" CornerRadius=\"10\">\r\n*|*\r\n</Frame>",
-				},
-				new ProToolboxItem
-				{
 					ImageMoniker = KnownMonikers.Grid,
 					DisplayedText = "Grid",
 					DefaultContent = "<Grid [XN] RowDefinitions=\"Auto,Auto,*\" ColumnDefinitions=\"*,*\">\r\n*|*\r\n</Grid>",

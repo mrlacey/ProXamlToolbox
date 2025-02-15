@@ -73,7 +73,6 @@ namespace ProXamlToolbox
 				{
 					var cIndex = result.IndexOf(ProToolboxItem.CommandPrefixPlaceholder);
 
-					// TODO: change to searching for second quote
 					var cEndIndex = result.IndexOf("\" ", cIndex);
 
 					if (cEndIndex == -1)

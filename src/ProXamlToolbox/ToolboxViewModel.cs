@@ -42,7 +42,7 @@ namespace ProXamlToolbox
 				{
 					ImageMoniker = KnownMonikers.ListView,
 					DisplayedText = "CollectionView",
-					DefaultContent = "<CollectionView [XN] ItemsSource=\"{Binding PropertyName}\" SelectionMode=\"Single\"[CMD]SelectionChangedCommand=\"{Binding CommandName}\"[EVNT]SelectionChanged=\"OnSelectionChanged\">\r\n<CollectionView.ItemTemplate>\r\n<DataTemplate>\r\n*|*\r\n</DataTemplate>\r\n</CollectionView.ItemTemplate>\r\n<CollectionView.EmptyView>\r\n<ContentView>\r\n<StackLayout HorizontalOptions=\"CenterAndExpand\"\r\nVerticalOptions=\"CenterAndExpand\">\r\n<Label Text=\"Nothing to see here.\"\r\n />\r\n</StackLayout>\r\n</ContentView>\r\n</CollectionView.EmptyView>\r\n</CollectionView>",
+					DefaultContent = "<CollectionView [XN] ItemsSource=\"{Binding PropertyName}\" SelectionMode=\"Single\"[CMD]SelectionChangedCommand=\"{Binding CommandName}\"[EVNT]SelectionChanged=\"OnSelectionChanged\">\r\n<CollectionView.ItemTemplate>\r\n<DataTemplate>\r\n*|*\r\n</DataTemplate>\r\n</CollectionView.ItemTemplate>\r\n<CollectionView.EmptyView>\r\n<ContentView>\r\n<StackLayout HorizontalOptions=\"Center\"\r\nVerticalOptions=\"Center\">\r\n<Label Text=\"Nothing to see here.\"\r\n />\r\n</StackLayout>\r\n</ContentView>\r\n</CollectionView.EmptyView>\r\n</CollectionView>",
 				},
 				new ProToolboxItem
 				{
